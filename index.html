@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAESTRO - Pentest Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Roboto Font -->
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body style */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #eeeeee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            animation: backgroundEffect 8s ease-in-out infinite; /* Background animation */
+        }
+
+        /* Background fire & cyber animation */
+        @keyframes backgroundEffect {
+            0% { background: linear-gradient(45deg, #ff3333, #121212); }
+            50% { background: linear-gradient(45deg, #121212, #ff3333); }
+            100% { background: linear-gradient(45deg, #ff3333, #121212); }
+        }
+
+        /* Main container */
+        .search-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+            width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 2px solid #ff3333;
+            backdrop-filter: blur(10px); /* Blurring the background */
+            margin-top: 50px;
+        }
+
+        /* Heading and text */
+        h1 {
+            color: #00ff00;
+            margin-bottom: 10px;
+            font-size: 36px;
+            text-transform: uppercase;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        p {
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        /* Search box style */
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            background-color: #333;
+            color: #ffffff;
+            outline: none;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: 0.3s ease;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: #00ff99;
+        }
+
+        /* Button styling */
+        button {
+            padding: 10px 20px;
+            background-color: #ff3333;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff1a1a;
+        }
+
+        /* Info section for PoCs */
+        .info-section {
+            background-color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+            overflow-y: auto;
+            max-height: 350px;
+            color: #aaa;
+            border: 1px solid #ff3333;
+        }
+
+        pre {
+            background-color: #222;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-top: 5px;
+            color: #00ff00;
+            font-size: 16px;
+        }
+
+        h2 {
+            color: #ff3333;
+            margin-bottom: 10px;
+            font-size: 22px;
+            text-transform: uppercase;
+        }
+
+        /* Text glow animation */
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333; }
+            50% { text-shadow: 0 0 20px #ff6666, 0 0 40px #ff6666, 0 0 60px #ff6666; }
+            100% { text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333; }
+        }
+
+        /* Footer styling */
+        h3 {
+            font-size: 16px;
+            color: #fff;
+            margin-top: 30px;
+            font-style: italic;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        a {
+            color: #00ff00;
+            font-size: 16px;
+            margin-top: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff3333;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design for smaller screens */
+        @media (max-width: 768px) {
+            .search-container {
+                width: 90%;
+                margin-top: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            input[type="text"], select, button {
+                font-size: 14px;
+            }
+
+            .info-section {
+                max-height: 60vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .info-section {
+                max-height: 50vh;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <h1>MAESTRO</h1><br>
+        <a href="home.html" style="color: #e40b0b; font-size: 16px; text-decoration: none; margin-top: 30px;">Go To Home Page</a>
+        <p>Your Pentesting Guide for Educational Purposes</p>
+
+        <!-- Expanded search bar for Google Dorks -->
+        <select id="dorkSelector">
+            <option value="">Select a Google Dork</option>
+            <!-- SQL Injection Dorks -->
+            <option value="inurl:index.php?id=">SQL Injection: inurl:index.php?id=</option>
+            <option value="inurl:product.php?id=">SQL Injection: inurl:product.php?id=</option>
+            <option value="inurl:page.php?page=">SQL Injection: inurl:page.php?page=</option>
+            <option value="inurl:search?q=">SQL Injection: inurl:search?q=</option>
+            <option value="intitle:index.of .db">SQL Database: intitle:index.of .db</option>
+            <!-- FTP Dorks -->
+            <option value="intitle:FTP Server">FTP: intitle:FTP Server</option>
+            <option value="inurl:ftp">FTP Server: inurl:ftp</option>
+            <option value="inurl:/ftp/">FTP Directory: inurl:/ftp/</option>
+            <option value="inurl:ftp://">FTP URL: inurl:ftp://</option>
+            <!-- SCADA Dorks -->
+            <option value="intitle:SCADA">SCADA: intitle:SCADA</option>
+            <option value="intitle:HMI">SCADA: intitle:HMI</option>
+            <option value="inurl:/scada">SCADA: inurl:/scada</option>
+            <option value="intitle:Supervisory Control and Data Acquisition">SCADA: intitle:Supervisory Control and Data Acquisition</option>
+            <!-- Web and Admin Panels -->
+            <option value="inurl:admin">Admin Panel: inurl:admin</option>
+            <option value="inurl:login">Login Page: inurl:login</option>
+            <option value="intitle:phpMyAdmin">phpMyAdmin: intitle:phpMyAdmin</option>
+            <option value="inurl:phpinfo.php">PHP Info: inurl:phpinfo.php</option>
+            <option value="inurl:/.git/config">Git Config: inurl:/.git/config</option>
+            <option value="intitle:index.of .env">Environment Files: intitle:index.of .env</option>
+            <!-- More dorks can be added as needed -->
+        </select>
+        <input type="text" id="searchQuery" placeholder="Enter your search query...">
+        <button onclick="searchGoogle()">Search</button>
+
+        <!-- Additional Information -->
+        <div class="info-section">
+            <h2>Common Vulnerabilities & PoCs</h2>
+            <p><strong>SQL Injection:</strong> A type of attack where malicious SQL code is inserted into an input field, potentially allowing attackers to access or manipulate the database.</p>
+            <pre>http://example.com/index.php?id=1' OR '1'='1</pre>
+            <p><strong>FTP Vulnerabilities:</strong> Unsecured FTP servers can expose data and files. Always ensure proper authentication and encryption.</p>
+            <pre>ftp://example.com/</pre>
+            <p><strong>SCADA Systems:</strong> These systems control industrial operations and can be vulnerable if improperly configured or exposed to the internet.</p>
+            <pre>intitle:"SCADA" inurl:/scada</pre>
+            <p><strong>Ethical Note:</strong> Only use these examples in a responsible manner. Conduct tests only on systems you have explicit permission to scan or assess. Unauthorized access is illegal and unethical.</p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        function searchGoogle() {
+            const query = document.getElementById('searchQuery').value;
+            const selectedDork = document.getElementById('dorkSelector').value;
+            let searchUrl = "https://www.google.com/search?q=";
+
+            if (selectedDork) {
+                searchUrl += `${encodeURIComponent(selectedDork)}+`;
+            }
+            if (query) {
+                searchUrl += `${encodeURIComponent(query)}`;
+            } else if (!selectedDork) {
+                alert('Please enter a search query or select a dork');
+                return;
+            }
+
+            window.open(searchUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>

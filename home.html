@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaestroTunisie Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Cairo Arabic Font -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100%;
+            overflow-y: auto;
+            position: relative;
+            background: linear-gradient(45deg, #111, #333);
+            padding-top: 50px; /* Space for the navbar */
+        }
+
+        /* Background animation */
+        @keyframes gradientBg {
+            0% {
+                background: linear-gradient(45deg, #ff3333, #111);
+            }
+            50% {
+                background: linear-gradient(45deg, #111, #ff3333);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff3333, #111);
+            }
+        }
+
+        body {
+            animation: gradientBg 6s ease infinite;
+        }
+
+        /* Main Heading */
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 50px;
+            animation: textGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        h1 span {
+            color: #1e90ff; /* Blue color for "Official" */
+        }
+
+        /* Sub-heading */
+        h2 {
+            color: #ff3333;
+            margin-top: 20px;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* Information Section (Cadre) */
+        .info-section {
+            width: 90%;
+            max-width: 900px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 0, 0.5);
+        }
+
+        .info-section p {
+            font-size: 18px;
+            color: #fff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Founder Section */
+        .founder-section {
+            text-align: center;
+            margin-top: 40px;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .founder-name {
+            font-size: 30px;
+            font-weight: 700;
+            color: #ff3333;
+            margin-top: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .founder-description {
+            font-size: 18px;
+            color: #fff;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* Animations */
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333;
+            }
+            50% {
+                text-shadow: 0 0 20px #ff6666, 0 0 40px #ff6666, 0 0 60px #ff6666;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Styling for Navigation Links */
+        .navbar {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            border: 2px solid #ff3333; /* Red border */
+        }
+
+        .navbar a {
+            color: #000000; /* Black color */
+            font-size: 18px;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 700; /* Bold */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.3s ease;
+            font-family: 'Roboto', sans-serif;
+            text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000; /* Cyber effect */
+        }
+
+        /* Glowing effect and underline on hover */
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #ff3333;
+            left: 0;
+            bottom: -5px;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .navbar a:hover {
+            color: #ff3333; /* Red on hover */
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; /* Glowing red effect */
+        }
+
+        .navbar a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Tunisia Flag */
+        .flag-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            animation: rotateFlag 5s infinite linear;
+        }
+
+        .flag-container img {
+            width: 70px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 15px #ff3333;
+        }
+
+        /* Flag animation */
+        @keyframes rotateFlag {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Footer Section (simple) */
+        .footer {
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            font-family: 'Cairo', sans-serif; /* Arabic Font */
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: none; /* No background */
+            border-top: 2px solid #ff3333;
+        }
+
+        .footer p {
+            font-size: 18px;
+            color: #fff;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+       .arabic-text {
+            font-size: 22px;
+            font-weight: bold;
+            color: #e1e1e1;
+            font-family: 'Roboto', sans-serif;
+            text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000; /* Cyber effect */
+            
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <!-- Tunisia Flag -->
+    <div class="flag-container">
+        <img src="https://h.top4top.io/p_3260l4ygw1.jpg" alt="Tunisia Flag">
+    </div>
+
+    <!-- Navigation Links at the Top -->
+    <div class="navbar">
+        <a href="index.html">To Use Dorks</a>
+        <a href="cmd.html">To Show All CMD Of Pentest Tools</a>
+        <a href="online.html">To Use Our Online Tools</a>
+    </div>
+
+    <div class="container">
+        <h1>Maestro Tunisie <span>Official</span></h1>
+        
+        <div class="info-section">
+            <h2>Penetration Testing & CyberSecurity in Tunisia</h2>
+            <p>Penetration Testing (PenTest) is a legal and essential activity to evaluate the security of systems, networks, and applications. In Tunisia, the growing need for cybersecurity professionals has led to a surge in penetration testing services, providing vital protection for businesses and government organizations.</p>
+            <p>Penetration testing involves simulating cyberattacks to identify vulnerabilities that hackers could exploit. It is crucial for organizations to continuously test their systems to stay ahead of cybercriminals and ensure sensitive data remains secure.</p>
+            <p>Cybersecurity in Tunisia is gaining more attention as the country expands its digital infrastructure. With a rapidly growing tech scene, it’s more important than ever for Tunisian companies to protect their data, online assets, and customer information.</p>
+        </div>
+
+        <div class="founder-section">
+        
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    
+        <p class="arabic-text">{وَتَوَكَّلْ عَلَى اللَّهِ وَكَفَى بِاللَّهِ وَكِيلاً}</p>
+        <p>&copy; 2024 MaestroTunisie. All rights reserved.</p>
+ 
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #00ff00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .terminal {
+            width: 90%;
+            max-width: 800px;
+            background-color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            overflow-y: auto;
+            height: 90vh;
+            font-family: 'Courier New', Courier, monospace;
+            color: #33ff33;
+        }
+
+        .output {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .input {
+            color: #33ff33;
+            border: none;
+            outline: none;
+            background: none;
+            width: 100%;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
+        }
+
+        .input:focus {
+            outline: none;
+        }
+
+        .command-line {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-prompt {
+            margin-right: 10px;
+            color: #ff3333;
+        }
+
+        .user-prompt::after {
+            content: '$';
+        }
+
+        .command-line input {
+            width: 100%;
+            color: #00ff00;
+            background-color: #121212;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="terminal" id="terminal">
+        <div class="output" id="output"></div>
+        <div class="command-line">
+            <span class="user-prompt">Maestro@root</span>
+            <input type="text" id="commandInput" class="input" placeholder="Type a command..." />
+        </div>
+    </div>
+
+    <script>
+        // Initialize terminal
+        const terminal = document.getElementById('terminal');
+        const output = document.getElementById('output');
+        const commandInput = document.getElementById('commandInput');
+        
+        // List of fake commands for simulation
+        const commands = {
+            "nmap": "Starting Nmap scan...\nScanning 192.168.1.0/24...\nHost is up.\nOpen ports: 80, 443, 22",
+            "sqlmap": "Starting SQLmap...\nDetecting SQL injection vulnerability...\nVulnerable parameters found: id\nDumping database...",
+            "nikto": "Nikto scanning...\nChecking for dangerous files...\nFound vulnerable CGI directories.",
+            "clear": ""
+        };
+
+        // Handle the input
+        commandInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                const command = commandInput.value.trim();
+
+                if (command) {
+                    addCommandLine(command);
+                    handleCommand(command);
+                }
+
+                commandInput.value = ''; // Clear input
+            }
+        });
+
+        // Add command to terminal output
+        function addCommandLine(command) {
+            const commandLine = document.createElement('div');
+            commandLine.textContent = `Maestro@root $ ${command}`;
+            output.appendChild(commandLine);
+            output.scrollTop = output.scrollHeight; // Scroll to the bottom
+        }
+
+        // Handle the command and show output
+        function handleCommand(command) {
+            let response = 'Command not found. Try `nmap`, `sqlmap`, or `nikto`.';
+
+            if (commands[command]) {
+                response = commands[command];
+            }
+
+            const outputLine = document.createElement('div');
+            outputLine.textContent = response;
+            output.appendChild(outputLine);
+            output.scrollTop = output.scrollHeight; // Scroll to the bottom
+        }
+    </script>
+
+</body>
+</html>

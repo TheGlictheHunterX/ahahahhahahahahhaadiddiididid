@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAESTRO TOOLS ONLINE - Real PenTest Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> <!-- Roboto Font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(45deg, #111, #333);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100%;
+            overflow-y: auto;
+            position: relative;
+            padding-top: 50px;
+            animation: gradientBg 6s ease infinite;
+        }
+
+        /* Background animation */
+        @keyframes gradientBg {
+            0% {
+                background: linear-gradient(45deg, #ff3333, #111);
+            }
+            50% {
+                background: linear-gradient(45deg, #111, #ff3333);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff3333, #111);
+            }
+        }
+
+        a {
+            color: #ff3333;
+            font-size: 18px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff6666;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: textGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        h1 span {
+            color: #ff3333;
+        }
+
+        h2 {
+            color: #ff3333;
+            margin-top: 20px;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #333;
+            border: 1px solid #ff3333;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            outline: none;
+            border-color: #ff6666;
+            box-shadow: 0 0 5px rgba(255, 102, 102, 0.7);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #ff3333;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6666;
+        }
+
+        .report {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 5px;
+            color: #ff3333;
+            font-size: 14px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+            text-shadow: 0 0 5px #ff3333;
+            min-height: 100px;
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333;
+            }
+            50% {
+                text-shadow: 0 0 20px #ff6666, 0 0 40px #ff6666, 0 0 60px #ff6666;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333;
+            }
+        }
+
+        .section-heading {
+            font-size: 26px;
+            color: #ff3333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .footer a {
+            color: #ff3333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="home.html">Go To Home Page</a>
+    <div class="container">
+        <h1>MAESTRO <span>TOOLS</span> ONLINE</h1>
+
+        <!-- Introduction Section -->
+        <div class="content-section">
+            <h2>Real Penetration Testing Tools for CVEs, IPs, and Subdomains</h2>
+            <p>Penetration testing involves assessing the security of a system by simulating attacks. Below, you'll find real pentesting tools for vulnerability scanning, IP assessment, and subdomain enumeration. These tools will provide you with valuable reports that help in identifying and fixing vulnerabilities in your infrastructure.</p>
+        </div>
+
+        <!-- CVE Check and Vulnerability Scanner Section -->
+        <div class="content-section">
+            <h2 class="section-heading">Vulnerability Scanner</h2>
+            <input type="text" id="scanInput" placeholder="Enter domain/IP (e.g., example.com)">
+            <button onclick="performVulnScan()">Scan for Vulnerabilities</button>
+            <div id="vulnScanReport" class="report"></div>
+        </div>
+
+        <!-- Subdomain Enumeration Section -->
+        <div class="content-section">
+            <h2 class="section-heading">Subdomain Enumeration</h2>
+            <input type="text" id="subdomainInput" placeholder="Enter domain to check for subdomains (e.g., example.com)">
+            <button onclick="performSubdomainScan()">Check Subdomains</button>
+            <div id="subdomainReport" class="report"></div>
+        </div>
+
+        <!-- IP Assessment Section -->
+        <div class="content-section">
+            <h2 class="section-heading">IP Security Assessment</h2>
+            <input type="text" id="ipInput" placeholder="Enter IP address (e.g., 192.168.1.1)">
+            <button onclick="performIpAssessment()">Assess IP</button>
+            <div id="ipAssessmentReport" class="report"></div>
+        </div>
+
+        <!-- JavaScript -->
+        <script>
+            // Function to perform vulnerability scan
+            function performVulnScan() {
+                const input = document.getElementById('scanInput').value;
+                const report = document.getElementById('vulnScanReport');
+
+                if (!input) {
+                    alert('Please enter a valid domain or IP address.');
+                    return;
+                }
+
+                report.innerHTML = `Scanning vulnerabilities for: ${input}...<br><br>`;
+                report.innerHTML += `- Checking for CVEs...<br>`;
+                report.innerHTML += `- Scanning open ports...<br>`;
+                report.innerHTML += `- Reviewing SSL/TLS configurations...<br>`;
+                report.innerHTML += `<strong>Note:</strong> This is a simulated scan. Replace with actual scan tools such as Nmap or Shodan.`;
+            }
+
+            // Function to perform subdomain scan
+            function performSubdomainScan() {
+                const domain = document.getElementById('subdomainInput').value;
+                const report = document.getElementById('subdomainReport');
+
+                if (!domain) {
+                    alert('Please enter a valid domain.');
+                    return;
+                }
+
+                report.innerHTML = `Enumerating subdomains for: ${domain}...<br><br>`;
+                report.innerHTML += `- Found subdomains:<br>`;
+                report.innerHTML += `- sub1.${domain}<br>`;
+                report.innerHTML += `- sub2.${domain}<br>`;
+                report.innerHTML += `<strong>Note:</strong> This is a simulated result.`;
+            }
+
+            // Function to perform IP security assessment
+            function performIpAssessment() {
+                const ip = document.getElementById('ipInput').value;
+                const report = document.getElementById('ipAssessmentReport');
+
+                if (!ip) {
+                    alert('Please enter a valid IP address.');
+                    return;
+                }
+
+                report.innerHTML = `Assessing IP: ${ip}...<br><br>`;
+                report.innerHTML += `- Performing DNS lookup...<br>`;
+                report.innerHTML += `- Scanning open ports...<br>`;
+                report.innerHTML += `- Identifying potential threats...<br>`;
+                report.innerHTML += `<strong>Note:</strong> This is a simulated result. Replace with actual IP assessment tools.`;
+            }
+        </script>
+
+        <div class="footer">
+            <p>&copy; 2024 MAESTRO TOOLS ONLINE - All Rights Reserved. <a href="#">Privacy Policy</a></p>
+        </div>
+    </div>
+</body>
+</html>
