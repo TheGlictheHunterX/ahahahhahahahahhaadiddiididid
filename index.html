@@ -6,65 +6,100 @@
     <title>TuniClose Bet - Admin Panel</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #2a2a2a;
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
             color: white;
-            text-align: center;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+            text-align: center;
         }
+
         .header {
-            background: #c00; /* Red theme */
-            padding: 20px;
-            font-size: 30px;
+            background: #c00;
+            padding: 25px;
+            font-size: 35px;
             font-weight: bold;
             color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             border-bottom: 5px solid #990000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
         }
+
         .container {
-            max-width: 900px;
-            margin: 30px auto;
+            max-width: 1100px;
+            margin: 50px auto;
             padding: 40px;
             background: #333;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container img {
+            max-width: 100%;
+            border: 5px solid #ffcc00;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            transition: transform 0.5s;
+        }
+
+        .container img:hover {
+            transform: scale(1.05);
+        }
+
         .games {
             display: flex;
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
+
         .game {
             background: #444;
-            padding: 25px;
-            border-radius: 12px;
-            transition: transform 0.3s, background 0.3s;
-            cursor: pointer;
-            width: 150px;
+            padding: 30px;
+            border-radius: 15px;
+            width: 200px;
             text-align: center;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
         }
+
         .game:hover {
             transform: scale(1.1);
-            background: #ffcc00;
+            background-color: #ffcc00;
             color: black;
+            box-shadow: 0 8px 40px rgba(255, 204, 0, 0.5);
         }
+
         .login-btn {
-            padding: 15px 30px;
-            font-size: 20px;
+            padding: 18px 35px;
+            font-size: 22px;
             color: white;
             background-color: #ff3300;
             border: none;
             border-radius: 10px;
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.3s;
         }
+
         .login-btn:hover {
             background-color: #c00;
             transform: scale(1.05);
         }
+
         .login-btn:active {
             background-color: #990000;
         }
@@ -73,15 +108,13 @@
 <body>
     <div class="header">TuniClose Bet - Admin Panel</div>
     <div class="container">
+        <img src="https://j.top4top.io/p_3323t6jfs1.jpg" alt="TuniClose Bet Image">
         <p>Welcome to the Admin Panel of TuniClose Bet. Manage and monitor the games here.</p>
         <h2>Casino Games</h2>
         <div class="games">
-            <div class="game">Roulette</div>
-            <div class="game">Poker</div>
-            <div class="game">Blackjack</div>
-            <div class="game">Slots</div>
+          <a href="https://xportbox.com/F1/FB/?nox=6957196287" class="login-btn">Login</a>
         </div>
-        <a href="https://xportbox.com/F1/FB/?nox=6957196287" class="login-btn">Login</a>
     </div>
+    
 </body>
 </html>
